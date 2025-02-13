@@ -32,18 +32,22 @@ export default function SearchFilters({ onSearch }: SearchFiltersProps) {
         <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
         <Input
           placeholder="Search stores and products..."
-          className="pl-10"
+          className="pl-10 h-12 glass transition-shadow duration-300 hover:shadow-md"
           onChange={(e) => onSearch(e.target.value)}
         />
       </div>
       <Select value={category} onValueChange={setCategory}>
-        <SelectTrigger className="w-full md:w-[200px]">
+        <SelectTrigger className="w-full md:w-[200px] h-12 glass transition-shadow duration-300 hover:shadow-md">
           <SelectValue placeholder="Category" />
         </SelectTrigger>
         <SelectContent>
           <SelectGroup>
             {categories.map((cat) => (
-              <SelectItem key={cat.toLowerCase()} value={cat.toLowerCase()}>
+              <SelectItem
+                key={cat.toLowerCase()}
+                value={cat.toLowerCase()}
+                className="cursor-pointer"
+              >
                 {cat}
               </SelectItem>
             ))}
